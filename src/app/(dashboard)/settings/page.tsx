@@ -6,7 +6,7 @@ export default function Page() {
     <>
       <PageHeader title="Pengaturan" />
       <Card>
-        <CardContent className="pt-5 text-sm text-muted-foreground">Modul ini dibangun pada Tahap berikutnya.</CardContent>
+        <CardContent className="pt-5 text-sm text-muted-foreground">Pengaturan masih dalam tahap development.</CardContent>
       </Card>
     </>
   );

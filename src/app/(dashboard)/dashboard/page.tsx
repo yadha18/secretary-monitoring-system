@@ -9,7 +9,7 @@ export default async function DashboardPage() {
       <PageHeader title="Dashboard" description={`Selamat datang, ${session?.user?.name ?? ""}.`} />
       <Card>
         <CardContent className="pt-5 text-sm text-muted-foreground">
-          Ringkasan dan grafik monitoring dibangun pada Tahap 6.
+          Dashboard masih dalam tahap development.
         </CardContent>
       </Card>
     </>
