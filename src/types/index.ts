@@ -78,3 +78,51 @@ export type IncomingDocumentDto = {
   createdAt: string;
   updatedAt: string;
 };
+
+
+// ---------- Dashboard ----------
+export type CountItem = { name: string; value: number };
+export type MonthItem = { month: string; value: number }; // month = "YYYY-MM"
+
+export type ActivityItem = {
+  id: string;
+  module: "action-tracker" | "ams" | "incoming";
+  kind: "created" | "updated";
+  title: string; // nomor
+  description: string;
+  at: string; // ISO datetime
+};
+
+export type OverdueDoc = { id: string; documentNumber: string; dueDate: string; daysLate: number; status: string };
+
+export type DashboardData = {
+  range: { key: string; from: string; to: string };
+  generatedAt: string;
+  cards: {
+    actionTotal: number;
+    actionOnProgress: number;
+    actionDone: number;
+    actionOverdue: number;
+    amsTotal: number;
+    amsNeedFollowUp: number;
+    incomingTotal: number;
+    incomingNotDone: number;
+  };
+  action: {
+    byStatus: CountItem[];
+    byDepartment: CountItem[];
+    byPriority: CountItem[];
+    completionPercent: number; // Done / total
+    averageProgress: number; // rata-rata kolom progress
+    byDeadline: CountItem[]; // hanya yang belum Done
+  };
+  documents: {
+    amsPerMonth: MonthItem[];
+    incomingPerMonth: MonthItem[];
+    statusDistribution: { name: string; ams: number; incoming: number }[];
+    followUpByStatus: CountItem[]; // AMS yang punya "Need Tindak Lanjut"
+    overdueCount: number;
+    overdueList: OverdueDoc[];
+  };
+  activities: ActivityItem[];
+};
