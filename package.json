@@ -9,7 +9,9 @@
     "lint": "eslint",
     "db:sync": "tsx --env-file=.env.local scripts/sync-indexes.ts",
     "typecheck": "tsc --noEmit",
-    "hash-password": "tsx scripts/hash-password.ts"
+    "hash-password": "tsx scripts/hash-password.ts",
+    "test": "tsx --test tests/*.test.ts",
+    "smoke": "tsx scripts/smoke-test.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",

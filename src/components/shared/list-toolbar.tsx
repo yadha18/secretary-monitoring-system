@@ -43,11 +43,11 @@ export function DateRangeFilter({
   onTo: (v: string) => void;
 }) {
   return (
-    <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+    <div className="flex max-w-full flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
       <span className="whitespace-nowrap">{label}</span>
-      <Input type="date" className="h-9 w-36" aria-label={`${label} dari`} value={from} max={to || undefined} onChange={(e) => onFrom(e.target.value)} />
+      <Input type="date" className="h-9 w-36 min-w-0 flex-1 sm:flex-none" aria-label={`${label} dari`} value={from} max={to || undefined} onChange={(e) => onFrom(e.target.value)} />
       <span>–</span>
-      <Input type="date" className="h-9 w-36" aria-label={`${label} sampai`} value={to} min={from || undefined} onChange={(e) => onTo(e.target.value)} />
+      <Input type="date" className="h-9 w-36 min-w-0 flex-1 sm:flex-none" aria-label={`${label} sampai`} value={to} min={from || undefined} onChange={(e) => onTo(e.target.value)} />
     </div>
   );
 }
